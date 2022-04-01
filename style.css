@@ -1,0 +1,63 @@
+body {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-image: url(http://i.imgur.com/w16HASj.png);
+  background-size: 100% 100%;
+  /* background-position: top center; */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* .content {
+  margin-top: 20%;
+} */
+
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inputStyle {
+  border-radius: 25px;
+  border: solid 1px white;
+  background: transparent;
+  width: 300px;
+  padding: 10px 20px;
+  font-family:Arial;
+  margin: 1rem;
+}
+
+
+input,
+input:focus {
+  color: white;
+  border: solid 1px white;
+  outline: 0;
+  -webkit-appearance: none;
+  box-shadow: nones;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+button {
+  border-radius: 25px;
+  border: solid 1px white;
+  background: transparent;
+  width: 300px;
+  padding: 10px 20px;
+  font-family:Arial;
+  margin: 1rem;
+  color: white;
+}
+
+.main-text {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.error {
+  color: #FF0000;
+}
