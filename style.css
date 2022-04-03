@@ -1,6 +1,6 @@
 body {
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   min-height: 100vh;
   background-image: url(http://i.imgur.com/w16HASj.png);
   background-size: 100% 100%;
@@ -50,10 +50,17 @@ button {
   padding: 10px 20px;
   font-family:Arial;
   margin: 1rem;
-  color: white;
+  color: #fff;
+  font-size: 1.5rem;
+
 }
 
-.main-text {
+button:hover {
+  background: #fff;
+  color: #356ccc ;
+}
+
+.main-text  {
   font-size: 2.5rem;
   color: white;
 }
@@ -61,3 +68,36 @@ button {
 .error {
   color: #FF0000;
 }
+
+table {
+          margin: 0 auto;
+          font-size: large;
+          border: 1px solid black;
+      }
+  
+  
+td {
+    background-color: #E4F5D4;
+    border: 1px solid black;
+}
+
+th {
+  color: white;
+}
+
+
+th,
+td {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+
+}
+
+
+td {
+    font-weight: lighter;
+}
+
+ 

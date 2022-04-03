@@ -5,8 +5,16 @@
     $hobby = "";
 
     // define variables to store warning messages 
-    $nameErr = "Name is Required";
+    $nameErr = "";
     $cityErr = "";
-    $hobbyErr = "";
+    $hobbyErr = "";  
+        
+// define a function to filter input data
+    function test_input($data) {
+          $data = trim($data);
+          $data = stripslashes($data);
+          $data = htmlspecialchars($data);
+          return $data;
+        }
 
 ?>

@@ -1,18 +1,8 @@
 
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "rehman";
-
-    // create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-    // check connection
-    if (!$conn) {
-        die ("Connections failed: " . mysqli_connect_error());
-    }
+   include "connection.php";
+   include "variables.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["name"])) {
@@ -30,14 +20,19 @@
         } else {
           $hobby = test_input($_POST["hobby"]);
         }
-      }
+      
+      if ($name != "" AND $hobby != "") {
 
-        function test_input($data) {
-          $data = trim($data);
-          $data = stripslashes($data);
-          $data = htmlspecialchars($data);
-          return $data;
-        }
-
+        $sql = "INSERT INTO hobies (name, city, hobbies)
+                          VALUES ('$name', '$city', '$hobby')";
+        if (mysqli_query($conn, $sql)) {
+          // redirect to display table
+          header("location: view.php");
+        } 
+      } else {
+        echo "<h2> Error: </h2>" . mysqli_error($conn);
+      } 
+}
         
 ?>
+
