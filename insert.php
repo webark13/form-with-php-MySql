@@ -20,19 +20,25 @@
         } else {
           $hobby = test_input($_POST["hobby"]);
         }
+      }
+
+        $sql = "SELECT * FROM hobies";
+
+        $result = mysqli_query($conn, $sql);
       
-      if ($name != "" AND $hobby != "") {
+      if ($name != "" AND $city != "" AND $hobby != "") {
 
         $sql = "INSERT INTO hobies (name, city, hobbies)
-                          VALUES ('$name', '$city', '$hobby')";
+                VALUES ('$name', '$city', '$hobby')";
         if (mysqli_query($conn, $sql)) {
           // redirect to display table
           header("location: view.php");
         } 
-      } else {
-        echo "<h2> Error: </h2>" . mysqli_error($conn);
-      } 
-}
+      }
+      //  else {
+      //   echo "<h2> Please Fill All Fields </h2>";
+      // } 
+
         
 ?>
 

@@ -1,5 +1,14 @@
 <?php
-include "variables.php";
+  include "variables.php";
+  include 'connection.php';
+  $id = $_GET["id"];
+
+  $sql = "SELECT * FROM hobies WHERE id = $id";
+
+	$result = mysqli_query($conn, $sql);
+
+  $row = mysqli_fetch_assoc($result);
+  
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -18,42 +27,26 @@ include "variables.php";
         <title>Update</title>
     </head> 
  <body>
-      <!-- sidebar -->
-    <?php 
-    include "sidebar.php";
-    include 'connection.php';
+   <?php include "sidebar.php"; ?>
 
-    $id = $_GET['id'];
-
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      
-      if (empty($_POST["hobby"])) {
-        $hobbyErr = "Hobby is Required";
-      } else {
-        $hobby = test_input($_POST["hobby"]);
-      }
-  }
-      
-    if ($hobby != "") {
-        $sql = "UPDATE hobies SET hobbies='$hobby' WHERE id = $id";
-        if (mysqli_query($conn, $sql)) {
-        header("location: view.php");
-         }
-     } else {
-        echo "Error: " . mysqli_error($conn);
-      }
-
-?>
  	    <div class="centered">
-        <h2 class="main-text">Which Hobby do you want to Update?</h2>
-        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-        <input type="hidden" name="id" value="<?php echo $id?>">
-        <input class="inputStyle" placeholder="Your Hobby" type="text" name= "hobby" value="">  
-        <span class="error">* <?php echo $hobbyErr;?></span> <br>
-        <button type="submit" value="submit" class="">Submit</button>
+        <h2 class="main-text">What's Your Hobby?</h2>
+        <form action="modify.php?id=<?= $id ?>" method="post">
+
+          <!-- create a hidden input to store id -->
+          <input type="hidden" name="id" value= "<?= $row['id'] ?>">
+          <input class="inputStyle" placeholder="Your Name" type="text" name="name" value="<?= $row['name']?>"> 
+          <span class="error">* <?php echo $nameErr;?></span><br>
+          <input class="inputStyle" placeholder="Your City" type="text" name="city" value="<?= $row['city']?>"> 
+          <span class="error">* <?php echo $cityErr;?></span>  <br>
+          <input class="inputStyle" placeholder="Your Hobby" type="text" name= "hobby" value="<?= $row['hobbies']?>"> 
+          <span class="error">* <?php echo $hobbyErr;?></span>  <br>
+          <input type="submit" name="editForm" class="button" value="Submit">
+
         </form>
-    </div>
+      </div>
     <script type="text/javascript" src="sidebar.js"></script>
   </body>
  </html>
  
+<

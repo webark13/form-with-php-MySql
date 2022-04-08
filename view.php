@@ -38,6 +38,7 @@
 	$sql = "SELECT * FROM hobies";
 
 	$result = mysqli_query($conn, $sql);
+	
 
 	// php code to fetch data from rows
 	if(mysqli_num_rows($result) > 0) {

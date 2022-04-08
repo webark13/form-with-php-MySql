@@ -42,7 +42,7 @@ input:focus {
   -webkit-box-shadow: none;
 }
 
-button {
+.button {
   border-radius: 25px;
   border: solid 1px white;
   background: transparent;
@@ -55,7 +55,7 @@ button {
 
 }
 
-button:hover {
+.button:hover {
   background: #fff;
   color: #356ccc ;
 }

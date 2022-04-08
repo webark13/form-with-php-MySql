@@ -1,7 +1,5 @@
+<?php include "insert.php"; ?>
 
-<?php
-    include 'insert.php';
-?>
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -21,26 +19,24 @@
     </head> 
    <body>
 
-        <!-- sidebar -->
+       
     <?php 
     include "sidebar.php";
     ?>
 
     <div class="centered">
         <h2 class="main-text">What's Your Hobby?</h2>
-        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+       
+        <form action="<?= $_SERVER["PHP_SELF"]?>" method="post">
 
-            <!-- <input type="hidden" name="id"> -->
+            
             <input class="inputStyle" placeholder="Your Name" type="text" name="name"> 
-           
             <span class="error">* <?php echo $nameErr;?></span><br>
-            
             <input class="inputStyle" placeholder="Your City" type="text" name="city" > 
-            
             <span class="error">* <?php echo $cityErr;?></span>  <br>
             <input class="inputStyle" placeholder="Your Hobby" type="text" name= "hobby" > 
             <span class="error">* <?php echo $hobbyErr;?></span>  <br>
-            <button type="submit" class="">Submit</button>
+            <input type="submit" class="button" value="Submit">
         </form>
     </div>
     <script type="text/javascript" src="sidebar.js"></script>
